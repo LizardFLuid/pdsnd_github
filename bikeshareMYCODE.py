@@ -19,7 +19,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 
-    # Get user input for city
+    # ser input for city
     while True:
         city = input("Choose a city to visualize (chicago, new york city, washington): ").lower()
         if city in CITY_DATA:
@@ -27,7 +27,7 @@ def get_filters():
         else:
             print("Error! Invalid input. Please enter either chicago, new york city, or washington.")
 
-    # Get user input for month
+    # User input for month
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
     while True:
         month = input("Which month? (january, february, march, april, may, june, or 'all'): ").lower()
@@ -36,7 +36,7 @@ def get_filters():
         else:
             print("Error! Invalid input. Please enter a month from the list or 'all'.")
 
-    # Get user input for day of the week
+    # User input for day of the week
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     while True:
         day = input("Which day? (monday, tuesday, wednesday, thursday, friday, saturday, sunday, or 'all'): ").lower()
@@ -105,13 +105,13 @@ def time_stats(df, original_df):
     most_common_hour = df['hour'].mode()[0]
     print(f"The most common start hour is: {most_common_hour}:00")
 
-    # Ask if user wants to see descriptive statistics
+    # Asks if user wants to see descriptive statistics
     if input("\nWould you like to see descriptive statistics for the most common start hour? Enter yes or no: ").lower() == 'yes':
         print("\nDescriptive statistics for the most common start hour:")
         original_df['hour'] = original_df['Start Time'].dt.hour
         show_descriptive_stats(original_df['hour'])
     
-    # Ask if user wants to see 5 rows of the original dataframe
+    # Asks if user wants to see 5 rows of the original dataframe
     if input("\nWould you like to see the first 5 rows of the original dataframe? Enter yes or no: ").lower() == 'yes':
         display_rows(original_df)
 
@@ -155,12 +155,12 @@ def trip_duration_stats(df, original_df):
     mean_travel_time_minutes = mean_travel_time / 60
     print(f"The average travel time is: {mean_travel_time:.2f} seconds ({mean_travel_time_minutes:.2f} minutes)")
 
-    # Ask if user wants to see descriptive statistics
+    # Asks if user wants to see descriptive statistics
     if input("\nWould you like to see descriptive statistics for trip duration? Enter yes or no: ").lower() == 'yes':
         print("\nStatistics for trip duration:")
         show_descriptive_stats(original_df['Trip Duration'])
 
-    # Ask if user wants to see 5 rows of the original dataframe
+    # Asks if user wants to see 5 rows of the original dataframe
     if input("\nWould you like to see the first 5 rows of the original dataframe? Enter yes or no: ").lower() == 'yes':
         display_rows(original_df)
 
@@ -201,7 +201,7 @@ def user_stats(df, original_df):
     else:
         print("\nSorry! Gender data is not available for this city.")
 
-    # Here for the earliest, most recent, and most common year of birth
+    # Displays oldest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
         oldest_year = df['Birth Year'].min()
         recent_year = df['Birth Year'].max()
@@ -211,12 +211,12 @@ def user_stats(df, original_df):
         print(f"Most recent year of birth: {recent_year}")
         print(f"Most common year of birth: {common_year}")
 
-        # Ask if user wants to see descriptive statistics
+        # Asks if user wants to see descriptive statistics
         if input("\nWould you like to see descriptive statistics for birth year? Enter yes or no: ").lower() == 'yes':
             print("\nStatistics for birth year:")
             show_descriptive_stats(original_df['Birth Year'])
 
-        # Ask if user wants to see 5 rows of the original dataframe
+        # Asks if user wants to see 5 rows of the original dataframe
         if input("\nWould you like to see the first 5 rows of the original dataframe? Enter yes or no: ").lower() == 'yes':
             display_rows(original_df)
     else:
