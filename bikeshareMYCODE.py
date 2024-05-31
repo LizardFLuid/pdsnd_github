@@ -19,7 +19,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 
-    # ser input for city
+    # User input for city
     while True:
         city = input("Choose a city to visualize (chicago, new york city, washington): ").lower()
         if city in CITY_DATA:
@@ -36,7 +36,7 @@ def get_filters():
         else:
             print("Error! Invalid input. Please enter a month from the list or 'all'.")
 
-    # User input for day of the week
+    # User input for day
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     while True:
         day = input("Which day? (monday, tuesday, wednesday, thursday, friday, saturday, sunday, or 'all'): ").lower()
